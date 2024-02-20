@@ -1,5 +1,7 @@
 ﻿using SWConsole;
 using System.Diagnostics;
+// Custom HandlingTypes
+using HandlingTypes;
 
 namespace SpaceWarsServices;
 
