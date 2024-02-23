@@ -34,6 +34,18 @@ public class GameActions
         await apiService.QueueAction([new("changeHeading", heading.ToString())]);
     }
 
+    public async Task setHeadingAsync(int direction)
+    {
+        heading = ClampRotation(direction);
+        await apiService.QueueAction([new("changeHeading", heading.ToString())]);
+    }
+
+    public async Task flipHeading()
+    {
+        heading = ClampRotation(heading + 180);
+        await apiService.QueueAction([new("changeHeading", heading.ToString())]);
+    }
+
     public async Task MoveForwardAsync(bool lightSpeed)
     {
         heading = ClampRotation(heading);

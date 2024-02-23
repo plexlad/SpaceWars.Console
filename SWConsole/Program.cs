@@ -23,6 +23,9 @@ class Program
         const ConsoleKey shopKey = ConsoleKey.S;
         const ConsoleKey repairKey = ConsoleKey.R;
         const ConsoleKey readAndEmptyMessagesKey = ConsoleKey.M;
+        const ConsoleKey flipKey = ConsoleKey.S;
+        const ConsoleKey commandModeKey = ConsoleKey.DownArrow;
+
 
         Uri baseAddress = getApiBaseAddress(args);
         using HttpClient httpClient = new HttpClient() { BaseAddress = baseAddress };
@@ -31,8 +34,8 @@ class Program
         var token = "";
         var service = new ApiService(httpClient);
         List<PurchasableItem> Shop = new List<PurchasableItem>();
-        JoinGameResponse joinGameResponse = null;
 
+        JoinGameResponse joinGameResponse = null;
         Console.WriteLine("Please enter your name");
         var username = Console.ReadLine();
         try
@@ -123,10 +126,38 @@ class Program
                 //***  |    |    |    |       Add any other custom keys here       |    |    |    |    |
                 //***  V    V    V    V                                            V    V    V    V    V
                 //**************************************************************************************
-                case ConsoleKey.N:
-                    //example
+                case var key when key == flipKey:
+                    await gameActions.flipHeading();
+                    break;
+                case var key when key == commandModeKey:
+                    Console.Write(":");
+                    var command = Console.ReadKey(true).Key;
+                    var input = Console.ReadLine();
+                    var commandWorked = runCommand(command, input);
+                    
                     break;
             }
+        }
+        
+        // Nested switch for running commands
+        // Command code is listed here
+        // Command input is string 
+        bool runCommand(ConsoleKey key, string input)
+        {
+            if (input != null)
+            {
+                switch(key)
+                {
+                    // Heading command
+                    case ConsoleKey.H:
+                        break;
+                    default:
+                        Console.WriteLine("\nCommand does not exist");
+                        return false;
+                        break;
+                }
+            }
+            return false;
         }
 
         void printStatus()

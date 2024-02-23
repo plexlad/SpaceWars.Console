@@ -163,6 +163,7 @@ namespace HandlingTypes
                             Console.WriteLine();
                         }
                     }
+                    Console.WriteLine("Normal mode");
                     break;
                 case Modes.Combat:
                     break;
@@ -173,16 +174,8 @@ namespace HandlingTypes
 
         public static void WipeScreenAndResetCursor()
         {
+            Console.Clear();
             Console.SetCursorPosition(0, 0);
-            int width = Console.WindowWidth;
-            int height = Console.WindowHeight;
-            for(int i = 0; i < height; i++)
-            {
-                for(int n = 0; n < width; n++)
-                {
-                    Console.Write(" ");
-                }
-            }
         }
     }
 }
