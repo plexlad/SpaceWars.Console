@@ -23,8 +23,8 @@ class Program
         const ConsoleKey shopKey = ConsoleKey.S;
         const ConsoleKey repairKey = ConsoleKey.R;
         const ConsoleKey readAndEmptyMessagesKey = ConsoleKey.M;
-        const ConsoleKey flipKey = ConsoleKey.S;
-        const ConsoleKey commandModeKey = ConsoleKey.DownArrow;
+        const ConsoleKey flipKey = ConsoleKey.DownArrow;
+        const ConsoleKey commandModeKey = ConsoleKey.P;
 
 
         Uri baseAddress = getApiBaseAddress(args);
