@@ -1,7 +1,5 @@
 ﻿using SWConsole;
 using System.Diagnostics;
-// Custom HandlingTypes
-using HandlingTypes;
 
 namespace SpaceWarsServices;
 
@@ -154,12 +152,12 @@ class Program
                     default:
                         Console.WriteLine("\nCommand does not exist");
                         return false;
+
                         break;
                 }
             }
             return false;
         }
-
         void printStatus()
         {
             Console.Clear();
